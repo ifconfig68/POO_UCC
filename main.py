@@ -7,11 +7,25 @@ class Usuario :
         self.nombre = nombre
         self.cedula = cedula
         self.tipo = "clientes"
+        self.logueado = False
         Usuario.contador +=1
         print("objeto creado")
+    
+    def login(self , user , passw):
+        if user == "admin" and passw == "12345" :
+            print (f"Bienbenido{self.nombre}")
+            self.logueado = True
+        else : 
+
+
+    def logout(self):
+        pass
+            
+
+
     def __str__(self):
         return f"""
-        Hola {self.nombre} su edad es {self.edad}.  Hasta luego!"
+        Hola user su edad es {self.edad}.  Hasta luego!"
 
     
     
