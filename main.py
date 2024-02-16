@@ -13,13 +13,15 @@ class Usuario :
     
     def login(self , user , passw):
         if user == "admin" and passw == "12345" :
-            print (f"Bienbenido{self.nombre}")
+            print (f"Bienvenido {self.nombre}")
             self.logueado = True
         else : 
+            print ("Usuario o contraseña incorrectas")
 
 
     def logout(self):
-        pass
+        self.logueado = False
+        print ("sesion cerrada")
             
 
 
@@ -27,14 +29,22 @@ class Usuario :
         return f"""
         Hola user su edad es {self.edad}.  Hasta luego!"
 
-    
-    
            """
  
-usuario = Usuario(18 , "user1" , 112233)
-usuario = Usuario(18 , "user2" , 112233)
-usuario = Usuario(18 , "user3" , 112233)
+usuario1 = Usuario(18 , "user1" , 112233)
+usuario2 = Usuario(18 , "user2" , 112233)
+usuario3 = Usuario(18 , "user3" , 112233)
    
 print(f"cantidad de obejetos creados {Usuario.contador} ")
-print(usuario)
-print (usuario.tipo)
+print(usuario1.nombre)
+print (usuario2.nombre)
+print (usuario3.nombre)
+
+print ("--"*30)
+
+usuario1.login("admin" , "12345")
+usuario2.login("admin" , "12345")
+usuario1.logout()
+print("--"*30)
+print(f"Estado de {usuario2.nombre} es {usuario2.logueado}")
+print(f"Estado de {usuario1.nombre} es {usuario1.logueado}")
