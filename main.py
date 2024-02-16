@@ -1,12 +1,15 @@
 class Usuario : 
-    def __init__(self):
-        self.edad = 20
-        self.nombre = "Anderson"
-        self.cedula = 1096255949
+    def __init__(self , edad , nombre , cedula):
+        self.edad = edad
+        self.nombre = nombre
+        self.cedula = cedula
+        self.tipo = "clientes"
         print("objeto creado")
+    def __str__(self):
+        return f"Hola {self.nombre}git su edad es {self.edad}.  Hasta luego!"
 
-usuario = Usuario()
-print(usuario.nombre)
-usuario1  = Usuario
-print("su edad es : " , usuario.edad)
+usuario = Usuario(18 , "anderson" , 112233)
+print(usuario)
+print (usuario.tipo)
+
     
