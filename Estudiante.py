@@ -23,6 +23,7 @@ class Estudiante :
         Estudiante.count +=1
         #print("objeto creado")
         print(f"cantidad de estudiantes creados {Estudiante.count} ")
+        print ("-"*30)
        
 
 
@@ -33,12 +34,12 @@ class Estudiante :
     def obtener_nota_promedio(self) :
         promedio = (self.nota1 + self.nota2) / 2
         print(f"hola {self.nombre } su promedio es  {promedio}  {Estudiante.institucion}")
-        print ("-" * 30)
+        
         
     
     def cambio_institucion(self ) :
         Estudiante.institucion = "ucc"
-        print (f"{self.nombre} estudias en la {Estudiante.institucion}")
+        print (f"{self.nombre}  ahora hicimos el cambio estudias en la {Estudiante.institucion}")
         print ("-"*30)
     
 
