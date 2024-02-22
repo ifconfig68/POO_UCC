@@ -1,3 +1,14 @@
+from tabulate import tabulate
+
+data = [
+    {"Nota":"0 a 2.9" , "Escala": "BAJA"},
+    {"Nota":"3 a 3.9" , "Escala": "MEDIA"},
+    {"Nota":"4 a 4,5" , "Escala": "ALTA"},
+    {"Nota":"4.6 a 5.0" , "Escala": "SOBRESALIENTE"}
+]
+table = tabulate (data, headers="keys" , tablefmt="grid")
+
+
 class Estudiante :
     nombre : str
     nota1 : float
@@ -12,20 +23,31 @@ class Estudiante :
         Estudiante.count +=1
         #print("objeto creado")
         print(f"cantidad de estudiantes creados {Estudiante.count} ")
+       
+
+
+    def ver_escala() :
+        print (table)
+        print ("--"*30)
     
     def obtener_nota_promedio(self) :
         promedio = (self.nota1 + self.nota2) / 2
         print(f"hola {self.nombre } su promedio es  {promedio}  {Estudiante.institucion}")
+        print ("-" * 30)
+        
     
     def cambio_institucion(self ) :
         Estudiante.institucion = "ucc"
-        print (f"hola {self.nombre} estudias en la {Estudiante.institucion}")
+        print (f"{self.nombre} estudias en la {Estudiante.institucion}")
+        print ("-"*30)
     
 
-
-obj_estudiante = Estudiante("anderson" , 5 , 2 )
+Estudiante.ver_escala()
+obj_estudiante = Estudiante("Anderson" , 5 , 2 )
 obj_estudiante1 = Estudiante("Gabriel" , 5 , 3 )
-obj_estudiante2 = Estudiante("camilo" , 5 , 1 )
+obj_estudiante2 = Estudiante("Camilo" , 5 , 1 )
+
+
 
 obj_estudiante.obtener_nota_promedio()
 obj_estudiante1.obtener_nota_promedio()
