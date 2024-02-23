@@ -56,7 +56,7 @@ obj_estudiante2.obtener_nota_promedio()
 
 obj_estudiante.cambio_institucion()
 
-obj_estudiante1.cambio_institucion()
+#obj_estudiante1.cambio_institucion()
 obj_estudiante2.cambio_institucion()
 
 

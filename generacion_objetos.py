@@ -6,18 +6,18 @@ class Juego :
 
         
     """
-    def __init__(self) :
+    def __init__(self , nombre) :
           self.__vidas = 0
           self.play()
           self.nivel = 0
-          self.jugador = "Mario"
+          self.jugador = nombre 
     
    
     
     def play (self) :
         if self.__vidas == 0 :
             self.__vidas = 3 
-            print ("reiniciado contador vidas")
+            #print ("reiniciado contador vidas")
 
            
       
@@ -63,31 +63,20 @@ class Juego :
     
 if __name__ == "__main__" :
     
-    j1= Juego ()
-    Juego.bienvenida(j1.jugador)
-    while True : 
-        op =  int(input("""
-
-                        1. play
-                        2. lose
-                        3. Reset 
-                        4. Exit  
-                       
-
-                """
-                ))
-        
-        if  op == 1 : 
-            j1.play()
-        elif op == 2 :
-            j1.lose()
-        elif op ==3 :
-            j1.reset
-        elif op == 4 : 
-            print("Adios")
-       
-
-        
     
-        
+    
+    juegos = [] # vector o lista
+    for j in range (10):
+        n = input("nombre del jugador ")
+        juegos.append(Juego(n))
+    
+    for i in juegos :
+        print(i)
+    
+    juegos[0].veryfy()
+    juegos[1].veryfy()
+    juegos[2].veryfy()
 
+
+    print ("--"*30)
+    
