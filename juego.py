@@ -1,5 +1,6 @@
 # modificadores de acceso 
 class Juego :
+    genero = "arcade"
     #doc string 
     """
 
@@ -50,6 +51,10 @@ class Juego :
         print (f"bienvenido <<{nombre}>>a nuestra version 1.0")
 
 
+    @classmethod
+    def cambiar_genero (cls , nuevo):
+        cls.genero = nuevo
+
 
     def __str__(self) :
       return f"Player {self.jugador} - Life's: {self.__vidas} - Nivel: {self.nivel}"
@@ -80,6 +85,9 @@ if __name__ == "__main__" :
             j1.reset
         elif op == 4 : 
             print("Adios")
+
+
+#enviando cambios locales
        
 
         
