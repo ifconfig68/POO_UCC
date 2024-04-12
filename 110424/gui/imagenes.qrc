@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="img">
+    <file>login.png</file>
+    <file>png-clipart-super-saiyan-4-goku-son-goku.png</file>
+  </qresource>
+</RCC>
