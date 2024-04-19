@@ -29,21 +29,34 @@ class Conexion :
             self.con = False
             self.cursor = False
 
-    def consultar_todos(self , tabla):
+    def consultar_todos(self , tabla , **kwargs):
+        
+        complemento = []
+        if kwargs:
+             print("-"*30)
+             for clave, valor in kwargs.items():
+                complemento.append(f"{clave} ='{valor}'")
+
+        complemento = "where "+" and ".join(complemento)
+        print(complemento)
+        print("-"*30)
+
+        
+       
         # select * from usuario
         # select * from usuario where nombre like '%andrea%'
         # select * from usuario where nombre like 'andrea%'
         # select * from usuario where nombre like '%andrea'
         # select * from usuario where nombre like 'andrea'
 
-        
+
         try : 
             #query = f"SELECT * from {tabla}"  facil de hacer sqlinjection    query = f"SELECT * from {"' drop datbase"}"
             #self.cursor.execute({"SELECT * from ?" , (tabla,)})
             #resultado = self.cursor.fetchall()
             #return resultado
             if tabla in Conexion.tablas :
-                query = f"SELECT * from {tabla}"
+                query = f"SELECT * from {tabla } {complemento}"
                 self.cursor.execute(query)
                 resultado = self.cursor.fetchall()
                 return resultado

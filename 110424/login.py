@@ -12,7 +12,20 @@ class Login (Conexion):
        
     def login (self) :
         self.conectar()
-        registros  = self.consultar_todos("programa")
+
+        usuario = self.ventana.user.text()
+        clave = self.ventana.passwd.text()
+        #registros  = self.consultar_todos("programa")
+        registros = self.consultar_todos("usuario" , user=usuario ,  passwd=clave)
+        if len(registros)>0 :
+            print ("bienvenido!!")
+            self.ventana_main = uic.loadUi ("110424/gui/main_windows.ui")
+            self.ventana_main.showMaximized()
+            
+            self.ventana.hide()
+        else:
+            print("credenciales error")
+            self.ventana.notificaciones.setText("ERROR")
         if registros !=False :
             for  u in registros :
                 print(u)
@@ -24,9 +37,7 @@ class Login (Conexion):
 
         #verificar usuario y contraseña 
         self.desconectar()
-        #self.ventana_main = uic.loadUi ("110424/gui/main_windows.ui")
-        #self.ventana.hide()
-        #self.ventana_main.showMaximized()
+    
         
         
 
