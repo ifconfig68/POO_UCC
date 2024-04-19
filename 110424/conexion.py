@@ -4,7 +4,9 @@ from pathlib import Path
 ruta = Path(__file__).parent.resolve()
 
 class Conexion :
+    tablas = ["usuario" , "programa"]
     def __init__(self) :
+    
         self.con = False
         self.cursor = False
 
@@ -18,15 +20,48 @@ class Conexion :
 
         except Error as e:
             print(e)
-        finally:
-            if self.con :
-                self.con.close()
+        
 
 
     def desconectar(self):
         if self.con :
             self.con.close ()
+            self.con = False
+            self.cursor = False
 
+    def consultar_todos(self , tabla):
+        # select * from usuario
+        # select * from usuario where nombre like '%andrea%'
+        # select * from usuario where nombre like 'andrea%'
+        # select * from usuario where nombre like '%andrea'
+        # select * from usuario where nombre like 'andrea'
+
+        
+        try : 
+            #query = f"SELECT * from {tabla}"  facil de hacer sqlinjection    query = f"SELECT * from {"' drop datbase"}"
+            #self.cursor.execute({"SELECT * from ?" , (tabla,)})
+            #resultado = self.cursor.fetchall()
+            #return resultado
+            if tabla in Conexion.tablas :
+                query = f"SELECT * from {tabla}"
+                self.cursor.execute(query)
+                resultado = self.cursor.fetchall()
+                return resultado
+        
+        except Exception as e :
+            print (f"Error :{e}")
+            return False
+        
+    
+        
+
+        #resultado = self.cursor.fetchone()
+
+
+
+
+    def consultar_unico(self):
+        pass
 
          
 
