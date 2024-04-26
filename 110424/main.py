@@ -18,6 +18,7 @@ class Software :
 
 if __name__ =="__main__" :
     ini = Software()
+    print("todo bien")
     
 
     
