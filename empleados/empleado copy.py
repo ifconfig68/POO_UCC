@@ -69,7 +69,6 @@ class Empleado:
             rows = cur.fetchall()
             for row in rows:
                 print(row)
-            return rows
         except Error:
             print(Error)
 
@@ -103,7 +102,7 @@ def main():
     
     empleado = Empleado()
     con = empleado.sql_connection()
-    print (con)
+    print 
     empleado.create_table()
     while True:
         print("\nMenu:")
@@ -144,4 +143,4 @@ def main():
             print("Opción inválida. Por favor, ingrese un número del 1 al 6.")
 
 
-main()
+main ()
